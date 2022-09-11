@@ -1,18 +1,41 @@
 /********** Base styles **********/
 * {
   box-sizing: border-box;
+  font-family: Garamond;
 }
 h1 {
   margin-bottom: 15px;
 }
 
 p {
-  border: 1px solid black;
-  background-color: #a52a2a;
+  background-color: grey;
   width: 90%;
-  height: 150px;
-  margin-right: auto;
-  margin-left: auto;
-  font-family: Helvetica;
+  margin: 30px auto 10px;
   color: white;
+  font-size: large;
+}
+
+.menuitem {
+  background-color: grey;
+}
+
+.label {
+  border: 1px solid black;
+  float: right;
+  width: 33.33%;
+  height: 25px;
+  text-align: center;
+  font-size: larger;
+}
+
+.menuitem:nth-child(1) .label {
+    background-color: #d8949c;
+}
+
+.menuitem:nth-child(2) .label {
+    background-color: #c14543;
+}
+
+.menuitem:nth-child(3) .label {
+    background-color: #e5d198;
 }
