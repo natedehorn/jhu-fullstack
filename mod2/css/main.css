@@ -13,27 +13,40 @@ h1 {
 p {
   background-color: grey;
   width: 90%;
-  margin: 30px auto 0;
   color: black;
-  padding: 10px 0;
 }
 
 .content {
-    border: 1px solid black;
-    background-color: grey;
-    margin: 15px;
-    height: 200px;
-    overflow: hidden;
+  position: relative;
+  border: 1px solid black;
+  background-color: grey;
+  margin: 15px;
+  padding-top: 30px;
+}
+
+.text {
+  position: relative;
+  overflow: hidden;
+  height: 150px;
+  padding: 15px 15px;
+  margin: 0 0 5px;
+}
+
+.text:hover {
+  overflow-y: scroll;
+  cursor: n-resize;
 }
 
 .label {
-    border: 1px solid black;
-    float: right;
-    width: 33.33%;
-    height: 30px;
-    text-align: center;
-    font-size: 25px;
-    font-weight: 800;
+  border: 1px solid black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 33.33%;
+  height: 30px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 800;
 }
 
 [class^="col-"]:nth-child(1) .label {
@@ -49,14 +62,33 @@ p {
   background-color: #e5d198;
 }
 
-h1.categories { display: none }
+h1.categories, .description {
+  display: none;
+}
+
+/***** Mobile specific styles *****/
 @media (max-width: 767px) {
-    h1.categories { 
-        display: block;
-        font-size: 25px;
-        font-family: sans-serif;
-        margin: 15px;
-        text-align: left;
-    }
-    h1.menu { display: none }
+  h1.categories {
+    display: block;
+    font-size: 25px;
+    font-family: sans-serif;
+    margin: 15px;
+    text-align: left;
+  }
+  h1.menu {
+    display: none;
+  }
+  .label {
+    display: none;
+    width: 100%;
+  }
+  .content{
+    padding-top: 0px;
+  }
+  .description {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
 }
