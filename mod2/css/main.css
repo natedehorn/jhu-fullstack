@@ -28,8 +28,8 @@ p {
   position: relative;
   overflow: hidden;
   height: 150px;
-  padding: 15px 15px;
-  margin: 0 0 5px;
+  padding: 10px 15px;
+  margin: 0 0 10px;
 }
 
 .text:hover {
@@ -62,7 +62,8 @@ p {
   background-color: #e5d198;
 }
 
-h1.categories, .description {
+h1.categories,
+.description {
   display: none;
 }
 
@@ -82,7 +83,7 @@ h1.categories, .description {
     display: none;
     width: 100%;
   }
-  .content{
+  .content {
     padding-top: 0px;
   }
   .description {
