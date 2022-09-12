@@ -46,3 +46,15 @@ p {
 [class^="col-"]:nth-child(3) .label {
   background-color: #e5d198;
 }
+
+h1.categories { display: none }
+@media (max-width: 767px) {
+    h1.categories { 
+        display: block;
+        font-size: 25px;
+        font-family: sans-serif;
+        margin: 15px;
+        text-align: left;
+    }
+    h1.menu { display: none }
+}
