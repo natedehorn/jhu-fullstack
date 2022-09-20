@@ -1,4 +1,13 @@
-.backtotop{
+.backtotop {
     text-align: center;
     display: block;
+}
+
+.menuitem {
+    background-color: gray;
+    margin: 0px 10px;
+}
+
+#beef, #chicken, #sushi {
+    margin-bottom: 20px;
 }
