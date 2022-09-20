@@ -1,6 +1,10 @@
 .navbar-nav{
   margin: 0 -15px;
 }
+#navbar-collapse > ul > li {
+  text-align: center;
+  background-color: lightgray;
+}
 #navbar-collapse > ul > li:not(:last-child){
   border-bottom: 1px solid black;
 }
