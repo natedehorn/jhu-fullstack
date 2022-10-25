@@ -5,7 +5,8 @@
     .module("ShoppingListCheckOff", [])
     .controller("ToBuyController", ToBuyController)
     .controller("AlreadyBoughtController", AlreadyBoughtController)
-    .service("ShoppingListCheckOffService", ShoppingListCheckOffService);
+    .service("ShoppingListCheckOffService", ShoppingListCheckOffService)
+    .filter('total', TotalFilter);
 
   ToBuyController.$inject = ["ShoppingListCheckOffService"];
   function ToBuyController(ShoppingListCheckOffService) {
@@ -16,10 +17,13 @@
     };
   }
 
-  AlreadyBoughtController.$inject = ["ShoppingListCheckOffService"];
-  function AlreadyBoughtController(ShoppingListCheckOffService) {
+  AlreadyBoughtController.$inject = ["ShoppingListCheckOffService", "totalFilter"];
+  function AlreadyBoughtController(ShoppingListCheckOffService, totalFilter) {
     var alreadyboughtcontroller = this;
     alreadyboughtcontroller.items = ShoppingListCheckOffService.getAlreadyBought();
+    alreadyboughtcontroller.showTotal = function (item) {
+      return totalFilter(item)
+    };
   }
 
   function ShoppingListCheckOffService() {
@@ -37,15 +41,9 @@
 
     service.buyItem = function (itemIndex) {
       var item = toBuy[itemIndex];
-      this.getTotal(item);
       toBuy.splice(itemIndex, 1);
       alreadyBought.push(item);
     };
-
-    service.getTotal = function (item){
-      const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
-      item.total = formatter.format(item.quantity * item.pricePerItem)
-    }
 
     service.getToBuy = function () {
       return toBuy;
@@ -54,5 +52,12 @@
     service.getAlreadyBought = function () {
       return alreadyBought;
     };
+  }
+
+  function TotalFilter() {
+    return function (item) {
+      const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+      return '$$' + formatter.format(item.quantity * item.pricePerItem)
+    }
   }
 })();
