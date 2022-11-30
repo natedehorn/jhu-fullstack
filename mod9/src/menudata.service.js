@@ -1,7 +1,7 @@
 (function () {
     angular.module('data')
         .service('MenuDataService', MenuDataService)
-        .constant('ApiBasePath', 'https://davids-restaurant.herokuapp.com');
+        .constant('ApiBasePath', 'https://coursera-jhu-default-rtdb.firebaseio.com');
 
     MenuDataService.$inject = ['$http', 'ApiBasePath'];
     function MenuDataService($http, ApiBasePath) {
