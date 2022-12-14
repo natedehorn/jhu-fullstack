@@ -1,0 +1,19 @@
+<div class="container">
+    <div ng-if="myInfoController.isRegistered">
+      <h1>My Info</h1>
+      <div>
+        <label>First Name: </label> {{ myInfoController.myInfo.firstname }}</br>
+        <label>Last Name: </label> {{ myInfoController.myInfo.lastname }}</br>
+        <label>Email: </label> {{ myInfoController.myInfo.email }}</br>
+        <label>Phone Number: </label> {{ myInfoController.myInfo.phone }}</br>
+        <label>Favorite Dish: </label> {{ myInfoController.myInfo.dish }}</br>
+        {{ myInfoController.dishInfo.name }}</br>
+        {{ myInfoController.dishInfo.description }}</br>
+
+        <img class="img-responsive" width="250" height="150" ng-src="images/menu/{{myInfoController.dishInfo.category}}/{{myInfoController.dishInfo.short_name}}.jpg">
+      </div>
+    </div>
+    <div ng-if="!myInfoController.isRegistered">
+      Not Signed Up Yet. <a class="info-signup" ui-sref="public.signup">Sign up Now!</a>
+    </div>
+  </div>
